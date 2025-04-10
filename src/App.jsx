@@ -9,7 +9,6 @@ function App() {
       <main>
         <Routes>
           <Route index element={<HomePage />} />
-          {/* <Route path="/about" element={"<About />"} /> */}
         </Routes>
       </main>
     </BrowserRouter>
