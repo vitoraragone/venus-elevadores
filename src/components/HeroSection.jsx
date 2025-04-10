@@ -127,14 +127,10 @@ const HeroSection = () => {
             key={card.title}
             role="listitem"
             aria-label={card.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{
-              duration: 0.4,
-              delay: index * 0.2,
-              ease: "easeOut",
-            }}
+            initial={{ y: 40 }}
+            whileInView={{ y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            viewport={{ once: true, amount: 0.4 }}
             className="sm:flex-1 bg-[#F2F7FC] rounded-2xl text-center px-6 py-6 min-h-[240px] flex flex-col justify-center gap-4 shadow-md hover:scale-[1.03] hover:bg-[#E6EFF8] transition-all duration-300"
           >
             <p className="text-red-4 font-semibold text-xl">{card.title}</p>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import TestmonialsBg from "../assets/testmonials-bg-2.png";
 import { motion } from "framer-motion";
 
@@ -30,6 +30,36 @@ const Testmonials = () => {
     },
   ];
 
+  const containerRef = useRef(null);
+  const [visibleIndex, setVisibleIndex] = useState(0);
+  const cardsRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const mostVisible = entries.reduce((prev, curr) =>
+          prev.intersectionRatio > curr.intersectionRatio ? prev : curr
+        );
+        const index = parseInt(mostVisible.target.dataset.index);
+        setVisibleIndex(index);
+      },
+      {
+        root: containerRef.current,
+        threshold: 0.6,
+      }
+    );
+
+    cardsRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => {
+      cardsRefs.current.forEach((card) => {
+        if (card) observer.unobserve(card);
+      });
+    };
+  }, []);
+
   return (
     <section
       className="py-12 px-6 bg-cover bg-center"
@@ -46,6 +76,7 @@ const Testmonials = () => {
 
         <div
           className="py-10 overflow-x-auto no-scrollbar"
+          ref={containerRef}
           role="region"
           aria-label="Depoimentos de clientes"
         >
@@ -53,6 +84,8 @@ const Testmonials = () => {
             {data.map((item, index) => (
               <motion.article
                 key={index}
+                data-index={index}
+                ref={(el) => (cardsRefs.current[index] = el)}
                 className="bg-white min-w-[45ch] max-w-[50ch] rounded-md shadow-sm"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -72,6 +105,18 @@ const Testmonials = () => {
               </motion.article>
             ))}
           </div>
+        </div>
+
+        {/* Indicadores */}
+        <div className="md:hidden flex justify-center mt-6 gap-2">
+          {data.map((_, i) => (
+            <div
+              key={i}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                i === visibleIndex ? "bg-white" : "bg-white/40"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

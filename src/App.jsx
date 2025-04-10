@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/Home";
+import Home from "./pages/home";
 import Header from "./components/Utils/Header";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
       <Header />
       <main>
         <Routes>
-          <Route index element={<HomePage />} />
+          <Route index element={<Home />} />
           {/* <Route path="/about" element={"<About />"} /> */}
         </Routes>
       </main>

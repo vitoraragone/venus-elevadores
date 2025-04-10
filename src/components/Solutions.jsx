@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Solutions1 from "../assets/solutions-1.png";
 import Solutions2 from "../assets/solutions-2.png";
 import Solutions3 from "../assets/solutions-3.png";
@@ -53,50 +53,53 @@ const Solutions = () => {
       </h1>
 
       <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-4 md:gap-y-8">
-        {data.map((item, index) => (
-          <motion.article
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{
-              duration: 0.5,
-              delay: index * 0.1,
-              ease: "easeOut",
-            }}
-            key={index}
-            className="bg-[#FFEEEE] flex flex-col md:flex-row lg:flex-col lg:max-w-[400px] rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
-          >
-            <div
-              className="hidden md:block w-full md:w-1/2 lg:w-full h-[200px] md:h-auto lg:h-[200px] bg-cover bg-center transition-transform duration-500 hover:scale-105"
-              style={{
-                backgroundImage: `url(${item.url})`,
-                backgroundPosition: "center",
-              }}
-              role="img"
-              aria-label={`Imagem ilustrativa para ${item.title}`}
-            ></div>
+        {data.map((item, index) => {
+          const isEven = index % 2 === 0;
+          const ref = useRef(null);
+          const inView = useInView(ref, { once: true, amount: 0.3 });
 
-            <div className="flex-1 p-8 flex flex-col justify-center">
-              <p className="font-semibold text-[#2D3239] text-lg">
-                {item.title}
-              </p>
-              <p className="text-sm text-[#586171] mt-4">{item.description}</p>
-            </div>
-          </motion.article>
-        ))}
+          return (
+            <motion.article
+              key={index}
+              ref={ref}
+              initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="bg-[#FFEEEE] flex flex-col md:flex-row lg:flex-col lg:max-w-[400px] rounded-xl shadow-md overflow-hidden"
+            >
+              <div className="hidden md:block w-full md:w-1/2 lg:w-full h-[200px] md:h-auto lg:h-[200px] overflow-hidden">
+                <img
+                  src={item.url}
+                  alt={`Imagem ilustrativa para ${item.title}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="flex-1 p-8 flex flex-col justify-center">
+                <p className="font-semibold text-[#2D3239] text-lg">
+                  {item.title}
+                </p>
+                <p className="text-sm text-[#586171] mt-4">
+                  {item.description}
+                </p>
+              </div>
+            </motion.article>
+          );
+        })}
       </div>
 
       <motion.div
         className="block w-fit mx-auto my-14"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4, delay: 0.3 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
         viewport={{ once: true }}
       >
         <Button bgColor="red-4" color="white">
           Quero um projeto!
         </Button>
       </motion.div>
+
       <ImageSlider />
     </section>
   );

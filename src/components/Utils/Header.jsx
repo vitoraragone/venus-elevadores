@@ -69,7 +69,9 @@ export default function MobileNavbar() {
             <a href="#contato" className="text-lg font-medium text-gray-800">
               Contato
             </a>
-            <Button>Solicitar Orçamento</Button>
+            <Button bgColor="red-4" color="white">
+              Solicitar Orçamento
+            </Button>
           </nav>
         </div>
       </div>
