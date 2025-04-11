@@ -6,6 +6,8 @@ import Testmonials from "../components/Testmonials";
 import Competition from "../components/Competition";
 import CustomerService from "../components/CustomerService";
 import About from "../components/About";
+import Faq from "../components/Faq";
+import Contact from "../components/Contact";
 
 const Home = () => {
   return (
@@ -17,6 +19,8 @@ const Home = () => {
       <Competition />
       <CustomerService />
       <About />
+      <Faq />
+      <Contact />
     </>
   );
 };

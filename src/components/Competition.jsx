@@ -5,7 +5,8 @@ import Table from "./Utils/Table";
 const Competition = () => {
   return (
     <section
-      className="container mx-auto py-12 bg-cover bg-center"
+      id="diferenciais"
+      className="scroll-mt-[70px] container mx-auto py-12 bg-cover bg-center"
       aria-labelledby="competition-heading"
       role="region"
     >

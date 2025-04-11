@@ -6,7 +6,8 @@ import AboutFrame from "../assets/about-frame.png";
 const About = () => {
   return (
     <section
-      className="w-full grid grid-cols-1 md:grid-cols-2"
+      id="sobre"
+      className="scroll-mt-[80px] w-full grid grid-cols-1 md:grid-cols-2"
       aria-labelledby="about-heading"
       role="region"
     >

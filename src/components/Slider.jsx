@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Solutions1 from "../assets/solutions-1.png";
 import Solutions2 from "../assets/solutions-2.png";
 import Solutions3 from "../assets/solutions-3.png";
@@ -13,54 +13,45 @@ const images = [Solutions1, Solutions2, Solutions3];
 
 export default function ImageSlider() {
   const [current, setCurrent] = useState(0);
+  const startX = useRef(null);
 
   const prevSlide = () =>
     setCurrent((prev) => (prev - 1 + images.length) % images.length);
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
 
-  const prevIndex = (current - 1 + images.length) % images.length;
-  const nextIndex = (current + 1) % images.length;
+  const handleTouchStart = (e) => {
+    startX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX.current - endX > 50) {
+      nextSlide();
+    } else if (endX - startX.current > 50) {
+      prevSlide();
+    }
+    startX.current = null;
+  };
 
   return (
     <section className="relative w-full max-w-5xl mx-auto md:px-4">
-      <div className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
-        {images.map((src, index) => {
-          const isActive = index === current;
-          const isPrev = index === prevIndex;
-          const isNext = index === nextIndex;
-
-          return (
-            <motion.img
-              key={index}
-              src={src}
-              alt={`Slide ${index + 1}`}
-              className={`absolute object-cover rounded-xl shadow-lg transition-all duration-500
-              w-full h-full md:w-[60%] md:h-[80%]`}
-              initial={false}
-              animate={
-                index === current
-                  ? {
-                      opacity: 1,
-                      scale: 1,
-                      x: 0,
-                      zIndex: 3,
-                    }
-                  : {
-                      opacity: 0.4,
-                      scale: 0.85,
-                      x:
-                        index === prevIndex
-                          ? "-50%"
-                          : index === nextIndex
-                          ? "50%"
-                          : 0,
-                      zIndex: 1,
-                    }
-              }
-              transition={{ duration: 0.1, ease: "easeOut" }}
-            />
-          );
-        })}
+      <div
+        className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <AnimatePresence initial={false} custom={current}>
+          <motion.img
+            key={current}
+            src={images[current]}
+            alt={`Slide ${current + 1}`}
+            className="absolute object-cover rounded-xl shadow-lg w-full h-full md:w-[60%] md:h-[80%]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          />
+        </AnimatePresence>
 
         <button
           onClick={prevSlide}
