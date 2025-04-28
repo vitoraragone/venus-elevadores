@@ -8,6 +8,7 @@ import CustomerService from "../components/CustomerService";
 import About from "../components/About";
 import Faq from "../components/Faq";
 import Contact from "../components/Contact";
+import Credentials from "../components/Credentials";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Competition />
       <CustomerService />
       <About />
+      <Credentials />
       <Faq />
       <Contact />
     </>
