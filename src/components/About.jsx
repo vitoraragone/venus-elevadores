@@ -27,23 +27,43 @@ const About = () => {
           </h1>
           <div className="text-[#586171] space-y-4 text-sm leading-relaxed">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              auctor suscipit mi at vestibulum. Duis pellentesque urna quis
-              mauris aliquam, quis aliquam purus volutpat. Suspendisse potenti.
+              Vênus elevadores e uma empresa tradicional que abrange desde
+              assistência técnica a projetos e modernização de elevadores.
+              Trabalhamos com uma equipe de profissionais treinados e
+              capacitados para atendimento com agilidade e qualidade. Nossos
+              Engenheiros e técnicos estão sempre atualizados com as inovações
+              tecnológicas e as normativas ABNT, com eficiência e prontidão
+              desenvolvem projetos inovadores e seguros, sempre aprimorando a
+              qualidade, conforto e segurança dos produtos priorizando a
+              qualidade e satisfação do cliente. Desde a venda de novos
+              equipamentos quanto ao serviços em manutenção (preventiva e
+              corretiva) e a modernização de elevadores multimarcas.
             </p>
-            <p>
-              Sed viverra rhoncus quam. Vestibulum aliquet sed magna id auctor.
-              Etiam vestibulum lorem lectus, at lacinia arcu ullamcorper quis.
-              Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas.
-            </p>
-            <p>
-              Donec pulvinar nisi a sodales elementum. Etiam mauris arcu,
-              vestibulum nec venenatis et, pulvinar non ante. Sed at ultricies
-              arcu, non hendrerit urna. Nunc enim quam, sodales sit amet metus
-              eu, finibus aliquet sem. In interdum massa neque, sit amet
-              imperdiet augue scelerisque id.
-            </p>
+            <ul className="list-disc my-8 flex flex-col gap-4">
+              <li class>
+                <span className="font-semibold">Nossa visão</span>
+                <p>
+                  Sempre focando em um atendimento de qualidade para todo o
+                  Brasil.
+                </p>
+              </li>
+              <li>
+                <span className="font-semibold">Nossa missão</span>
+                <p>
+                  Desenvolver projetos, soluções, manutenções e modernizações
+                  com segurança, qualidade, visando o respeito e a satisfação de
+                  toda a equipe e Clientes.
+                </p>
+              </li>
+              <li>
+                <span className="font-semibold">Nossos valores</span>
+                <p>
+                  Ética, Humanismo, Credibilidade, Respeito, Responsabilidade,
+                  Pioneirismo e Inovação, Transparência, Pontualidade,
+                  Confiança, Compromisso com a Segurança e Qualidade.
+                </p>
+              </li>
+            </ul>
           </div>
         </div>
       </motion.div>

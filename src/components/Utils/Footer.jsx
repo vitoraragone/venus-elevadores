@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
   faLinkedin,
-  faWhatsapp,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
@@ -100,21 +99,30 @@ const Footer = () => {
             <p className="font-bold uppercase">Contatos</p>
 
             <div className="mt-4">
-              <p className="font-semibold text-dark-1">Fixo</p>
-              <p className="text-dark-1">+55 (11) 3333-3333</p>
-            </div>
-
-            <div className="mt-2">
-              <p className="font-semibold text-dark-1">WhatsApp</p>
+              <p className="font-semibold text-dark-1">Comercial</p>
               <a
-                href="https://wa.me/5511999999999"
+                href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-dark-1 hover:underline focus:underline"
                 aria-label="Conversar no WhatsApp"
                 title="Conversar no WhatsApp"
               >
-                +55 (11) 99999-9999
+                (11) 97069-7761
+              </a>
+            </div>
+
+            <div className="mt-2">
+              <p className="font-semibold text-dark-1">Financeiro</p>
+              <a
+                href="https://wa.me/5511945860934"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-dark-1 hover:underline focus:underline"
+                aria-label="Conversar no WhatsApp"
+                title="Conversar no WhatsApp"
+              >
+                (11) 94586-0934
               </a>
             </div>
 

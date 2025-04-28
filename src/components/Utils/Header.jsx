@@ -34,9 +34,14 @@ export default function MobileNavbar() {
               <a href={item.href}>{item.label}</a>
             </li>
           ))}
-          <button className="bg-red-4 text-white rounded-full py-2 px-6">
-            Solicitar orçamento
-          </button>
+          <a
+            href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
+            target="_blank"
+          >
+            <button className="bg-red-4 text-white rounded-full py-2 px-6">
+              Solicitar orçamento
+            </button>
+          </a>
         </ul>
 
         <button onClick={() => setOpen(!open)} className="z-50 lg:hidden">
@@ -75,9 +80,14 @@ export default function MobileNavbar() {
                 {item.label}
               </a>
             ))}
-            <Button bgColor="red-4" color="white">
-              Solicitar Orçamento
-            </Button>
+            <a
+              href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
+              target="_blank"
+            >
+              <Button bgColor="red-4" color="white">
+                Solicitar Orçamento
+              </Button>
+            </a>
           </nav>
         </div>
       </div>

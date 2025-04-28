@@ -9,32 +9,42 @@ const TransformSection = () => {
     {
       title: "Elevadores residenciais",
       description:
-        "Projetos específicos para residências, trazendo conforto, praticidade e mobilidade para cada espaço. Os elevadores residenciais são ideais para pessoas com pouca mobilidade que necessitam de mais acessibilidade em casa.",
+        "Elevadores residenciais são equipamentos de transporte vertical projetados para uso em residências, facilitando o acesso a diferentes andares para moradores.",
     },
     {
-      title: "Elevadores para prédios de pequeno e médio porte",
+      title: "Elevadores comerciais",
       description:
-        "Projetos específicos para residências, trazendo conforto, praticidade e mobilidade para cada espaço. Os elevadores residenciais são ideais para pessoas com pouca mobilidade que necessitam de mais acessibilidade em casa.",
+        "Elevadores comerciais são sistemas de transporte vertical projetados para uso em edifícios comerciais, como escritórios, shoppings e hotéis.",
     },
     {
-      title: "Elevadores para prédios comerciais",
+      title: "Elevadores maca-leito",
       description:
-        "Projetos específicos para residências, trazendo conforto, praticidade e mobilidade para cada espaço. Os elevadores residenciais são ideais para pessoas com pouca mobilidade que necessitam de mais acessibilidade em casa.",
+        "Elevadores para maca são elevadores projetados especificamente para transportar pacientes deitados em macas, garantindo um transporte seguro e confortável em hospitais e clínicas.",
     },
     {
-      title: "Elevadores de carga",
+      title: "Plataforma de acessibilidade",
       description:
-        "Projetos específicos para residências, trazendo conforto, praticidade e mobilidade para cada espaço. Os elevadores residenciais são ideais para pessoas com pouca mobilidade que necessitam de mais acessibilidade em casa.",
+        "Elevadores de acessibilidade são plataformas elevatórias projetadas para transportar pessoas com mobilidade reduzida entre diferentes níveis, garantindo inclusão e autonomia.",
     },
     {
-      title: "Elevadores monta pratos",
+      title: "Elevadores para carga",
       description:
-        "Projetos específicos para residências, trazendo conforto, praticidade e mobilidade para cada espaço. Os elevadores residenciais são ideais para pessoas com pouca mobilidade que necessitam de mais acessibilidade em casa.",
+        "Elevadores monta-cargas são elevadores projetados especificamente para transportar cargas de ate 5000Kg.",
     },
     {
-      title: "Manutenção em elevadores",
+      title: "Assistência técnica",
       description:
-        "Projetos específicos para residências, trazendo conforto, praticidade e mobilidade para cada espaço. Os elevadores residenciais são ideais para pessoas com pouca mobilidade que necessitam de mais acessibilidade em casa.",
+        "Serviço especializado de manutenção, reparo e modernização para garantir o funcionamento seguro e eficiente dos elevadores.",
+    },
+    {
+      title: "Modernização",
+      description:
+        "Modernização é o processo de atualizar componentes e sistemas de um elevador existente para melhorar seu desempenho, segurança, eficiência e estética.",
+    },
+    {
+      title: "Regulamentação",
+      description:
+        "Regulamentação em elevadores nas prefeituras de cada munícipio, são normas e leis que garantem a segurança, acessibilidade e o bom funcionamento dos elevadores, protegendo os usuários e técnicos.",
     },
   ];
 
@@ -68,7 +78,7 @@ const TransformSection = () => {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
         >
           <motion.ul
-            className="flex flex-col gap-10 h-full w-full max-w-[50ch] min-w-0"
+            className="flex flex-col gap-5 h-full w-full max-w-[50ch] min-w-0"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -106,7 +116,6 @@ const TransformSection = () => {
                     <span className="mr-2">0{index + 1}</span>
                     {item.title}
                   </button>
-
                   <div
                     id={contentId}
                     role="region"

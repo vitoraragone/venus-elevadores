@@ -28,24 +28,6 @@ const Testmonials = () => {
       testmonial:
         "Conhecemos a Vênus através de uma empresa parceira. Solicitamos um orçamento e fomos rapidamente atendidos por um especialista que veio fazer uma visita presencial, entendeu as necessidades do projeto e as capacidades que a nossa estrutura tinha. O projeto foi rápido, terminaram e o serviço foi excelente.",
     },
-    {
-      name: "Gabriel Rodrigues",
-      company: "Empresa JKL",
-      testmonial:
-        "Conhecemos a Vênus através de uma empresa parceira. Solicitamos um orçamento e fomos rapidamente atendidos por um especialista que veio fazer uma visita presencial, entendeu as necessidades do projeto e as capacidades que a nossa estrutura tinha. O projeto foi rápido, terminaram e o serviço foi excelente.",
-    },
-    {
-      name: "Gabriel Rodrigues",
-      company: "Empresa JKL",
-      testmonial:
-        "Conhecemos a Vênus através de uma empresa parceira. Solicitamos um orçamento e fomos rapidamente atendidos por um especialista que veio fazer uma visita presencial, entendeu as necessidades do projeto e as capacidades que a nossa estrutura tinha. O projeto foi rápido, terminaram e o serviço foi excelente.",
-    },
-    {
-      name: "Gabriel Rodrigues",
-      company: "Empresa JKL",
-      testmonial:
-        "Conhecemos a Vênus através de uma empresa parceira. Solicitamos um orçamento e fomos rapidamente atendidos por um especialista que veio fazer uma visita presencial, entendeu as necessidades do projeto e as capacidades que a nossa estrutura tinha. O projeto foi rápido, terminaram e o serviço foi excelente.",
-    },
   ];
 
   const containerRef = useRef(null);

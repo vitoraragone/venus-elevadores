@@ -20,7 +20,7 @@ const Faq = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Principais dúvidas sobre a Vênus Elevadores?
+          Principais dúvidas sobre a Vênus Elevadores
         </motion.h1>
       </div>
 

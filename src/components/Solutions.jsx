@@ -10,39 +10,33 @@ const Solutions = () => {
   const data = [
     {
       url: Solutions1,
-      title: "Plataformas",
+      title: "Elevadores Residenciais",
       description:
-        "Simplificamos o processo de projetar um elevador residencial, podendo adaptar para a função necessária e no espaço disponível no seu local.",
+        "Elevadores residenciais “Home lift” são uma solução inteligente para quem busca acessibilidade, conforto e valorização do imóvel. Ao escolher o modelo ideal consideramos o espaço, as normas técnicas, o orçamento e as necessidades específicas dos usuários.",
     },
     {
       url: Solutions2,
-      title: "Elevadores para prédios",
+      title: "Elevadores Comerciais",
       description:
-        "Evoluímos o conceito de elevadores utilizados em prédios residenciais e comerciais, trazendo a agilidade e capacidade de carga necessárias.",
+        "Elevadores comerciais são sistemas de transporte vertical projetados para uso em edifícios comerciais, como escritórios, shoppings, hotéis e hospitais. São diferentes dos elevadores residenciais em termos de capacidade, velocidade, durabilidade e requisitos de segurança.",
     },
     {
       url: Solutions3,
-      title: "Elevadores para empresas",
+      title: "Elevadores Monta Carga",
       description:
-        "Trabalhamos com projetos diversos, desde elevadores de carga que suportam até 5 toneladas, até elevadores voltados para restaurantes como monta pratos. A melhor opção de criar um projeto único, exclusivo e facilitado.",
+        "Os elevadores monta-cargas são equipamentos projetados para transportar cargas, e não pessoas, entre diferentes níveis de um edifício. Eles são menores e mais simples do que os elevadores de passageiros, focados na funcionalidade e eficiência no transporte de materiais.",
     },
     {
       url: Solutions1,
-      title: "Item 4",
+      title: "Plataforma de Acessibilidade ",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor suscipit mi at vestibulum.",
+        "Uma plataforma elevatória é um equipamento mecânico projetado para transportar pessoas ou cargas entre diferentes níveis. Ela é uma alternativa aos elevadores convencionais, especialmente em situações onde a instalação de um elevador tradicional não é viável ou economicamente vantajosa.",
     },
     {
       url: Solutions2,
-      title: "Item 5",
+      title: "Elevadores de maca-leito",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor suscipit mi at vestibulum.",
-    },
-    {
-      url: Solutions3,
-      title: "Item 6",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor suscipit mi at vestibulum.",
+        "Os elevadores de maca, também conhecidos como elevadores de leito, são elevadores projetados especificamente para transportar pacientes em macas ou camas, juntamente com a equipe médica, em hospitais, clínicas e outras instalações de saúde. Eles são maiores e mais robustos do que os elevadores de passageiros comuns, e possuem características que garantem um transporte seguro e confortável para os pacientes.",
     },
   ];
 
@@ -52,7 +46,7 @@ const Solutions = () => {
         A solução perfeita para qualquer empresa, residência ou indústria
       </h1>
 
-      <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-4 md:gap-y-8">
+      <div className="mt-8 flex flex-col lg:justify-center lg:flex-row lg:flex-wrap gap-8">
         {data.map((item, index) => {
           const isEven = index % 2 === 0;
           const ref = useRef(null);
@@ -95,9 +89,14 @@ const Solutions = () => {
         transition={{ duration: 0.4 }}
         viewport={{ once: true }}
       >
-        <Button bgColor="red-4" color="white">
-          Quero um projeto!
-        </Button>
+        <a
+          href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
+          target="_blank"
+        >
+          <Button bgColor="red-4" color="white">
+            Quero um projeto!
+          </Button>
+        </a>
       </motion.div>
 
       <ImageSlider />

@@ -48,17 +48,29 @@ const HeroSection = () => {
           </h1>
 
           <p className="mt-5 text-lg text-[#586171] font-normal leading-relaxed max-w-[60ch]">
-            Projetamos elevadores industriais, residenciais ou monta pratos de
-            acordo com o seu espaço disponível e as suas necessidades, sendo
-            possível personalizar desde portas até botoeiras, trazendo um
-            projeto único para cada cliente. Atendemos o Brasil todo com a
-            qualidade e eficiência.
+            A Vênus Elevadores é conceituada em transporte vertical, incluindo
+            elevadores residenciais, comerciais, monta carga, elevadores para
+            macas, plataformas de acessibilidade, manutenção, modernização e
+            assistência técnica.
+          </p>
+          <p className="mt-5 text-lg text-[#586171] font-normal leading-relaxed max-w-[60ch]">
+            Oferecemos o que há de mais moderno em mobilidade vertical, com uma
+            estrutura de profissionais, entre eles engenheiros técnicos para
+            garantir eficiência, segurança, tecnologia, design e inovação para o
+            cada projeto personalizando. Somos credenciados aos órgãos
+            competentes a qual regulamentam as atividades em seu ramo de
+            elevadores, juntamente as prefeituras de origem.
           </p>
 
           <div className="mt-10">
-            <Button bgColor="red-4" color="white">
-              Veja como funciona
-            </Button>
+            <a
+              href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
+              target="_blank"
+            >
+              <Button bgColor="red-4" color="white">
+                Veja como funciona
+              </Button>
+            </a>
           </div>
         </motion.div>
 
