@@ -132,11 +132,12 @@ const Footer = () => {
               aria-label="Enviar e-mail para Vênus Elevadores"
               title="Enviar e-mail para Vênus Elevadores"
             >
-              contato@venuselevadores.com.br
+              comercial.venuselevadores@gmail.com
             </a>
 
             <p className="text-dark-1">
-              Rua Alameda AlgumaCoisa - São Paulo/SP
+              Av. Ordem e Progresso, 157, Barra Funda. São Paulo-SP <b>CEP:</b> {" "}
+              01141-030
             </p>
           </motion.div>
         </div>

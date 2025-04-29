@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import RoomElevator from "../assets/room-elevator.png?react";
 import { motion } from "framer-motion";
 
 const TransformSection = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const intervalRef = useRef(null);
+  const DURATION = 7000;
 
   const data = [
     {
@@ -48,6 +51,27 @@ const TransformSection = () => {
     },
   ];
 
+  useEffect(() => {
+    setProgress(0);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    const startTime = Date.now();
+    intervalRef.current = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const newProgress = Math.min((elapsed / DURATION) * 100, 100);
+      setProgress(newProgress);
+
+      if (elapsed >= DURATION) {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        setActiveIndex((prevIndex) => (prevIndex + 1) % data.length);
+      }
+    }, 100);
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [activeIndex]);
+
   return (
     <motion.section
       id="produtos"
@@ -58,7 +82,7 @@ const TransformSection = () => {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container mx-auto box-content h-[600px] overflow-y-hidden">
+      <div className="container mx-auto box-content overflow-y-hidden">
         <motion.h1
           id="transform-section-title"
           className="text-center w-full text-white font-semibold text-[20px] sm:text-3xl whitespace-normal"
@@ -71,14 +95,14 @@ const TransformSection = () => {
         </motion.h1>
 
         <motion.div
-          className="flex items-start justify-center gap-8 p-10 mt-10"
+          className="flex items-start justify-around gap-8 p-10 mt-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
         >
           <motion.ul
-            className="flex flex-col gap-5 h-full w-full max-w-[50ch] min-w-0"
+            className="flex flex-col gap-4 w-full max-w-[50ch]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -98,7 +122,11 @@ const TransformSection = () => {
               return (
                 <motion.li
                   key={item.title}
-                  className="w-full relative"
+                  className={`transition-all border rounded-lg px-4 py-3 ${
+                    isActive
+                      ? "bg-white/10 border-white/30 shadow-lg"
+                      : "border-white/10 hover:bg-white/5"
+                  }`}
                   variants={{
                     hidden: { opacity: 0, x: -20 },
                     visible: { opacity: 1, x: 0 },
@@ -107,14 +135,17 @@ const TransformSection = () => {
                   <button
                     id={buttonId}
                     onClick={() => setActiveIndex(isActive ? null : index)}
-                    className={`relative w-full text-left cursor-pointer font-semibold transition-colors duration-300 hover:text-white ${
-                      isActive ? "text-white" : "text-white/90"
-                    }`}
+                    className="w-full text-left font-semibold text-white/90 hover:text-white transition-colors flex items-start justify-between"
                     aria-expanded={isActive}
                     aria-controls={contentId}
                   >
-                    <span className="mr-2">0{index + 1}</span>
-                    {item.title}
+                    <span className="flex items-center gap-2 text-sm md:text-lg">
+                      <span className="text-white font-bold">0{index + 1}</span>
+                      {item.title}
+                    </span>
+                    <span className="text-white text-xl leading-none">
+                      {isActive ? "–" : "+"}
+                    </span>
                   </button>
                   <div
                     id={contentId}
@@ -126,9 +157,17 @@ const TransformSection = () => {
                         : "opacity-0 max-h-0"
                     }`}
                   >
-                    <p className="font-normal text-white/70 mb-4">
+                    <p className="font-normal text-sm md:text-md text-white/70 mt-2">
                       {item.description}
                     </p>
+                    {isActive && (
+                      <motion.div
+                        className="h-1 mt-2 bg-white rounded-full overflow-hidden"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${progress}%` }}
+                        transition={{ duration: 0.1, ease: "linear" }}
+                      />
+                    )}
                   </div>
                 </motion.li>
               );
