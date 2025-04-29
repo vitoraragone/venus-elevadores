@@ -153,10 +153,9 @@ const TransformSection = () => {
                       ? "bg-white/10 border-white/30 shadow-lg"
                       : "border-white/10 hover:bg-white/5"
                   }`}
-                  variants={{
-                    hidden: { opacity: 0, x: -20 },
-                    visible: { opacity: 1, x: 0 },
-                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.4 }}
                   onTouchStart={handlePause}
                   onTouchEnd={handleResume}
                 >
