@@ -101,7 +101,7 @@ const TransformSection = () => {
     <motion.section
       ref={sectionRef}
       id="produtos"
-      className="scroll-mt-[40px] md:scroll-mt-[70px] bg-red-4/90 py-12 "
+      className="scroll-mt-[40px] md:scroll-mt-[70px] bg-red-4/90 py-12 lg:h-screen overflow-y-hidden max-h-[calc(100vh+100px)]"
       aria-labelledby="transform-section-title"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}

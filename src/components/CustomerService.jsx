@@ -14,7 +14,7 @@ const CustomerService = () => {
         "Você entra em contato com a gente e solicita um orçamento. Após algumas perguntas podemos iniciar seu orçamento.",
     },
     {
-      title: "Em até X dias realizamos uma visita",
+      title: "Em até 7 dias realizamos uma visita",
       description:
         "Fazemos uma visita física ou virtual para personalizar a sua proposta.",
     },

@@ -3,37 +3,41 @@ import { motion, useInView } from "framer-motion";
 import Solutions1 from "../assets/solutions-1.png";
 import Solutions2 from "../assets/solutions-2.png";
 import Solutions3 from "../assets/solutions-3.png";
+import Elevator1 from "../assets/elevator-1.png";
+import Elevator2 from "../assets/elevator-2.png";
+import Elevator3 from "../assets/elevator-3.png";
+
 import ImageSlider from "./Slider";
 import Button from "./Utils/Button";
 
 const Solutions = () => {
   const data = [
     {
-      url: Solutions1,
+      url: Elevator1,
       title: "Elevadores Residenciais",
       description:
         "Elevadores residenciais “Home lift” são uma solução inteligente para quem busca acessibilidade, conforto e valorização do imóvel. Ao escolher o modelo ideal consideramos o espaço, as normas técnicas, o orçamento e as necessidades específicas dos usuários.",
     },
     {
-      url: Solutions2,
+      url: Elevator2,
       title: "Elevadores Comerciais",
       description:
         "Elevadores comerciais são sistemas de transporte vertical projetados para uso em edifícios comerciais, como escritórios, shoppings, hotéis e hospitais. São diferentes dos elevadores residenciais em termos de capacidade, velocidade, durabilidade e requisitos de segurança.",
     },
     {
-      url: Solutions3,
+      url: Elevator3,
       title: "Elevadores Monta Carga",
       description:
         "Os elevadores monta-cargas são equipamentos projetados para transportar cargas, e não pessoas, entre diferentes níveis de um edifício. Eles são menores e mais simples do que os elevadores de passageiros, focados na funcionalidade e eficiência no transporte de materiais.",
     },
     {
-      url: Solutions1,
+      url: Elevator1,
       title: "Plataforma de Acessibilidade ",
       description:
         "Uma plataforma elevatória é um equipamento mecânico projetado para transportar pessoas ou cargas entre diferentes níveis. Ela é uma alternativa aos elevadores convencionais, especialmente em situações onde a instalação de um elevador tradicional não é viável ou economicamente vantajosa.",
     },
     {
-      url: Solutions2,
+      url: Elevator2,
       title: "Elevadores de maca-leito",
       description:
         "Os elevadores de maca, também conhecidos como elevadores de leito, são elevadores projetados especificamente para transportar pacientes em macas ou camas, juntamente com a equipe médica, em hospitais, clínicas e outras instalações de saúde. Eles são maiores e mais robustos do que os elevadores de passageiros comuns, e possuem características que garantem um transporte seguro e confortável para os pacientes.",
