@@ -1,12 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import RoomElevator from "../assets/room-elevator.png?react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const TransformSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [isHolding, setIsHolding] = useState(false);
+  const [pauseTime, setPauseTime] = useState(0);
+  const [startTime, setStartTime] = useState(Date.now());
   const intervalRef = useRef(null);
-  const DURATION = 7000;
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { amount: 0.3, once: false });
+  const DURATION = 10000;
 
   const data = [
     {
@@ -52,17 +57,21 @@ const TransformSection = () => {
   ];
 
   useEffect(() => {
-    setProgress(0);
-    if (intervalRef.current) clearInterval(intervalRef.current);
+    if (!isInView || isHolding) return;
 
-    const startTime = Date.now();
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    const baseStart = Date.now() - pauseTime;
+    setStartTime(baseStart);
+
     intervalRef.current = setInterval(() => {
-      const elapsed = Date.now() - startTime;
+      const elapsed = Date.now() - baseStart;
       const newProgress = Math.min((elapsed / DURATION) * 100, 100);
       setProgress(newProgress);
 
       if (elapsed >= DURATION) {
-        if (intervalRef.current) clearInterval(intervalRef.current);
+        clearInterval(intervalRef.current);
+        setPauseTime(0);
+        setProgress(0);
         setActiveIndex((prevIndex) => (prevIndex + 1) % data.length);
       }
     }, 100);
@@ -70,12 +79,29 @@ const TransformSection = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [activeIndex]);
+  }, [activeIndex, isInView, isHolding]);
+
+  const handlePause = () => {
+    setIsHolding(true);
+    setPauseTime(Date.now() - startTime);
+    clearInterval(intervalRef.current);
+  };
+
+  const handleResume = () => {
+    setIsHolding(false);
+  };
+
+  const handleItemClick = (index) => {
+    setProgress(0);
+    setPauseTime(0);
+    setActiveIndex(index);
+  };
 
   return (
     <motion.section
+      ref={sectionRef}
       id="produtos"
-      className="scroll-mt-[40px] md:scroll-mt-[70px] bg-red-4/90 py-12 px-6"
+      className="scroll-mt-[40px] md:scroll-mt-[70px] bg-red-4/90 py-12 "
       aria-labelledby="transform-section-title"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -95,7 +121,7 @@ const TransformSection = () => {
         </motion.h1>
 
         <motion.div
-          className="flex items-start justify-around gap-8 p-10 mt-10"
+          className="flex items-start justify-around gap-8 px-4 mt-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -122,7 +148,7 @@ const TransformSection = () => {
               return (
                 <motion.li
                   key={item.title}
-                  className={`transition-all border rounded-lg px-4 py-3 ${
+                  className={`transition-all select-none border rounded-lg px-4 py-3 ${
                     isActive
                       ? "bg-white/10 border-white/30 shadow-lg"
                       : "border-white/10 hover:bg-white/5"
@@ -131,10 +157,12 @@ const TransformSection = () => {
                     hidden: { opacity: 0, x: -20 },
                     visible: { opacity: 1, x: 0 },
                   }}
+                  onTouchStart={handlePause}
+                  onTouchEnd={handleResume}
                 >
                   <button
                     id={buttonId}
-                    onClick={() => setActiveIndex(isActive ? null : index)}
+                    onClick={() => handleItemClick(index)}
                     className="w-full text-left font-semibold text-white/90 hover:text-white transition-colors flex items-start justify-between"
                     aria-expanded={isActive}
                     aria-controls={contentId}
@@ -151,6 +179,10 @@ const TransformSection = () => {
                     id={contentId}
                     role="region"
                     aria-labelledby={buttonId}
+                    onMouseDown={handlePause}
+                    onMouseUp={handleResume}
+                    onMouseLeave={handleResume}
+                    onMouseEnter={handlePause}
                     className={`transition-all duration-500 ease-in-out overflow-hidden ${
                       isActive
                         ? "opacity-100 mt-2 max-h-[300px]"
