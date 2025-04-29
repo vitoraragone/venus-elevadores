@@ -1,20 +1,9 @@
 import React from "react";
 import FooterLogo from "../../assets/footer-logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faInstagram,
-  faLinkedin,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
-import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
-import { motion } from "framer-motion";
+import { faGoogle, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
-const socialIcons = [
-  { icon: faLinkedin, label: "LinkedIn" },
-  { icon: faInstagram, label: "Instagram" },
-  { icon: faPaperPlane, label: "Telegram" },
-  { icon: faYoutube, label: "YouTube" },
-];
+import { motion } from "framer-motion";
 
 const navLinks = [
   { label: "Sobre nós", href: "#sobre" },
@@ -70,25 +59,19 @@ const Footer = () => {
           >
             <p className="font-bold uppercase">redes sociais</p>
             <button
-              className="bg-white px-6 py-2 rounded-full border-2 border-red-4 text-red-4 font-semibold mt-4 hover:bg-red-4 hover:text-white transition-colors"
+              className="flex items-center gap-4 bg-white px-6 py-2 rounded-full border-2 border-red-4 text-red-4 font-semibold mt-4 hover:bg-red-4 hover:text-white transition-colors"
               aria-label="Avalie-nos no Google"
             >
+              <FontAwesomeIcon icon={faGoogle} />
               Avalie-nos no Google
             </button>
-            <div className="flex gap-4" aria-label="Redes sociais">
-              {socialIcons.map(({ icon, label }, i) => (
-                <motion.a
-                  key={i}
-                  href="#"
-                  className="bg-white flex items-center justify-center h-7 w-7 mt-4 shadow-sm rounded-full focus:outline-none focus:ring-2 focus:ring-red-400"
-                  aria-label={label}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FontAwesomeIcon icon={icon} style={{ color: "#851F1F" }} />
-                </motion.a>
-              ))}
-            </div>
+            <button
+              className="flex items-center gap-4 bg-white px-6 py-2 rounded-full border-2 border-red-4 text-red-4 font-semibold mt-4 hover:bg-red-4 hover:text-white transition-colors"
+              aria-label="Avalie-nos no Google"
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+              Siga-nos no Instagram
+            </button>
           </motion.div>
 
           <motion.div

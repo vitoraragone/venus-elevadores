@@ -101,7 +101,7 @@ const TransformSection = () => {
     <motion.section
       ref={sectionRef}
       id="produtos"
-      className="scroll-mt-[40px] md:scroll-mt-[70px] bg-red-4/90 py-12 lg:h-screen overflow-y-hidden max-h-[calc(100vh+100px)]"
+      className="scroll-mt-[40px] md:scroll-mt-[70px] bg-red-4/90 py-12  overflow-y-hidden max-h-[calc(100vh+100px)] lg:h-screen"
       aria-labelledby="transform-section-title"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -121,7 +121,7 @@ const TransformSection = () => {
         </motion.h1>
 
         <motion.div
-          className="flex items-start justify-around gap-8 px-4 mt-10"
+          className="flex items-center justify-around gap-8 px-4 mt-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -206,7 +206,7 @@ const TransformSection = () => {
           </motion.ul>
 
           <motion.div
-            className="hidden md:block h-full p-[2px] bg-gradient-to-br from-white to-red-3 rounded-xl max-w-[400px] lg:max-w-[500px]"
+            className="hidden md:block h-full p-0.5 bg-gradient-to-br from-white to-red-3 rounded-xl max-w-[400px] lg:max-w-[700px]"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}

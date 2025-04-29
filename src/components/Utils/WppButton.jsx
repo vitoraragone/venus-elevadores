@@ -1,6 +1,5 @@
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { div } from "framer-motion/client";
 import React from "react";
 
 const WppButton = () => {

@@ -5,28 +5,28 @@ import { motion } from "framer-motion";
 const Testmonials = () => {
   const data = [
     {
-      name: "Carlos Gomes",
-      company: "Empresa ABC",
-      testmonial:
-        "Conhecemos a Vênus através de uma empresa parceira. Solicitamos um orçamento e fomos rapidamente atendidos por um especialista que veio fazer uma visita presencial, entendeu as necessidades do projeto e as capacidades que a nossa estrutura tinha. O projeto foi rápido, terminaram e o serviço foi excelente.",
+      name: "Fernanda Costa",
+      company: "Grupo Nexcon",
+      testimonial:
+        "A equipe da Vênus foi extremamente profissional desde o primeiro contato. Entenderam exatamente o que precisávamos e entregaram tudo antes do prazo. Estamos muito satisfeitos com o resultado final.",
     },
     {
-      name: "Alexandre Faria Lima",
-      company: "Empresa DEF",
-      testmonial:
-        "Conhecemos a Vênus através de uma empresa parceira. Solicitamos um orçamento e fomos rapidamente atendidos por um especialista que veio fazer uma visita presencial, entendeu as necessidades do projeto e as capacidades que a nossa estrutura tinha. O projeto foi rápido, terminaram e o serviço foi excelente.",
+      name: "Ricardo Menezes",
+      company: "TechNova Solutions",
+      testimonial:
+        "Nosso projeto exigia bastante atenção aos detalhes e a Vênus superou as expectativas. A comunicação foi clara durante todo o processo e a qualidade do serviço foi impecável.",
     },
     {
-      name: "Miguel Marlotto",
-      company: "Empresa GHI",
-      testmonial:
-        "Conhecemos a Vênus através de uma empresa parceira. Solicitamos um orçamento e fomos rapidamente atendidos por um especialista que veio fazer uma visita presencial, entendeu as necessidades do projeto e as capacidades que a nossa estrutura tinha. O projeto foi rápido, terminaram e o serviço foi excelente.",
+      name: "Juliana Prado",
+      company: "Construtora Vértice",
+      testimonial:
+        "Trabalhar com a Vênus foi uma experiência excelente. A equipe trouxe soluções criativas e se mostrou muito comprometida com a entrega. Com certeza voltaremos a trabalhar juntos em futuras demandas.",
     },
     {
-      name: "Gabriel Rodrigues",
-      company: "Empresa JKL",
-      testmonial:
-        "Conhecemos a Vênus através de uma empresa parceira. Solicitamos um orçamento e fomos rapidamente atendidos por um especialista que veio fazer uma visita presencial, entendeu as necessidades do projeto e as capacidades que a nossa estrutura tinha. O projeto foi rápido, terminaram e o serviço foi excelente.",
+      name: "André Luiz Martins",
+      company: "LogiMax Transportes",
+      testimonial:
+        "O atendimento foi rápido, o orçamento justo e a execução muito profissional. Desde a visita técnica até a finalização do projeto, tudo correu com transparência e eficiência.",
     },
   ];
 
@@ -124,15 +124,15 @@ const Testmonials = () => {
                 key={index}
                 data-index={index}
                 ref={(el) => (cardsRefs.current[index] = el)}
-                className="bg-white snap-center w-[calc(100vw-3rem)] sm:w-[45ch] max-w-[50ch] rounded-md shadow-sm"
+                className="bg-white snap-center w-[calc(100vw-3rem)] sm:w-[45ch] max-w-[50ch] rounded-md shadow-sm flex flex-col justify-between"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 aria-label={`Depoimento de ${item.name}, da ${item.company}`}
               >
-                <blockquote className="p-6 text-[#586171] text-sm">
-                  {item.testmonial}
+                <blockquote className="p-6 text-[#586171] text-sm flex-1">
+                  {item.testimonial}
                 </blockquote>
                 <footer className="flex flex-col bg-[#F2F7FC] font-semibold text-[#24272D] p-6 rounded-b-md text-base">
                   <cite className="not-italic">{item.name}</cite>

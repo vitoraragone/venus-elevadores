@@ -1,8 +1,5 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Solutions1 from "../assets/solutions-1.png";
-import Solutions2 from "../assets/solutions-2.png";
-import Solutions3 from "../assets/solutions-3.png";
 import Elevator1 from "../assets/elevator-1.png";
 import Elevator2 from "../assets/elevator-2.png";
 import Elevator3 from "../assets/elevator-3.png";

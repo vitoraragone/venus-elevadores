@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; // importante: instale o framer-motion
+import { motion } from "framer-motion";
 import SP from "../assets/sp-logo.png";
 import SECIESP from "../assets/seciesp.png";
 import ABNT from "../assets/Normas-ABNT.png";
