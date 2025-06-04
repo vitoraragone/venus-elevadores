@@ -24,6 +24,7 @@ const HeroSection = () => {
         "Adaptamos o projeto de acordo com sua necessidade e espaço disponível, tornando possível ter um elevador ideal para sua realidade.",
     },
   ];
+  const logos = [GrayLogo, RedLogo, FullLogo];
 
   return (
     <section
@@ -66,6 +67,7 @@ const HeroSection = () => {
             <a
               href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
               target="_blank"
+              rel="noreferrer"
             >
               <Button bgColor="red-4" color="white">
                 Veja como funciona
@@ -111,16 +113,15 @@ const HeroSection = () => {
         >
           <div className="list">
             {[...Array(12)].map((_, i) => {
-              const logos = [<GrayLogo />, <RedLogo />, <FullLogo />];
-              const Logo = logos[i % logos.length];
+              const LogoComponent = logos[i % logos.length];
               return (
                 <div className="item" key={i} style={{ "--position": i + 1 }}>
-                  {React.cloneElement(Logo, {
-                    className: "opacity-60 w-full h-full",
-                    width: undefined,
-                    height: undefined,
-                    "aria-hidden": true,
-                  })}
+                  <LogoComponent
+                    className="opacity-60 w-full h-full"
+                    width={undefined}
+                    height={undefined}
+                    aria-hidden="true"
+                  />
                 </div>
               );
             })}

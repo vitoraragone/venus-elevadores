@@ -119,7 +119,7 @@ const Footer = () => {
             </a>
 
             <p className="text-dark-1">
-              Av. Ordem e Progresso, 157, Barra Funda. São Paulo-SP <b>CEP:</b> {" "}
+              Av. Ordem e Progresso, 157, Barra Funda. São Paulo-SP <b>CEP:</b>{" "}
               01141-030
             </p>
           </motion.div>

@@ -40,7 +40,7 @@ const About = () => {
               corretiva) e a modernização de elevadores multimarcas.
             </p>
             <ul className="list-disc my-8 flex flex-col gap-4">
-              <li class>
+              <li>
                 <span className="font-semibold">Nossa visão</span>
                 <p>
                   Sempre focando em um atendimento de qualidade para todo o

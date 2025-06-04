@@ -17,7 +17,7 @@ export default function MobileNavbar() {
 
   return (
     <section className="fixed z-[9999] w-full bg-white h-[72px] border-b-2">
-      <div className="container mx-auto flex justify-between items-center py-4 px-8 relative z-50">
+      <div className="container mx-auto flex justify-between items-center py-4 relative z-50">
         <img
           src={mobileLogo}
           alt="Logo Venus Elevadores"
@@ -37,6 +37,7 @@ export default function MobileNavbar() {
           <a
             href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
             target="_blank"
+            rel="noreferrer"
           >
             <button className="bg-red-4 text-white rounded-full py-2 px-6">
               Solicitar orçamento
@@ -83,6 +84,7 @@ export default function MobileNavbar() {
             <a
               href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
               target="_blank"
+              rel="noreferrer"
             >
               <Button bgColor="red-4" color="white">
                 Solicitar Orçamento

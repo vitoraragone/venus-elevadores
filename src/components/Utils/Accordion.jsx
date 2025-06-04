@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const AccordionItem = ({ title, content, isOpen, onClick, index }) => {
   const buttonId = `accordion-button-${index}`;
@@ -44,6 +45,17 @@ const AccordionItem = ({ title, content, isOpen, onClick, index }) => {
       </div>
     </div>
   );
+};
+
+AccordionItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]).isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 const Accordion = () => {
