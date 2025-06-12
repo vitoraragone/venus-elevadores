@@ -45,6 +45,7 @@ export default function ImageSlider() {
             &#8594;
           </button>
           <img
+            loading="lazy"
             src={images[current]}
             alt={`Imagem ${current + 1}`}
             className="rounded-md shadow-md w-full h-full object-cover"
@@ -63,6 +64,7 @@ export default function ImageSlider() {
               onClick={() => setCurrent(index)}
             >
               <img
+                loading="lazy"
                 src={img}
                 alt={`Miniatura ${index + 1}`}
                 className="w-full h-full object-cover"

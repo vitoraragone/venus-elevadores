@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- home -->
+  <url>
+    <loc>https://venus-elevadores.vercel.app/</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- other sections -->
+  <url>
+    <loc>https://venus-elevadores.vercel.app/#sobre</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" href="https://venus-elevadores.vercel.app/#sobre" />
+  </url>
+
+  <url>
+    <loc>https://venus-elevadores.vercel.app/#servicos</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" href="https://venus-elevadores.vercel.app/#servicos" />
+  </url>
+
+  <url>
+    <loc>https://venus-elevadores.vercel.app/#contato</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" href="https://venus-elevadores.vercel.app/#contato" />
+  </url>
+
+</urlset>

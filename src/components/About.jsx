@@ -78,6 +78,7 @@ const About = () => {
         aria-hidden="true"
       >
         <img
+          loading="lazy"
           src={AboutImage}
           alt="Equipe da Vênus Elevadores em atendimento personalizado"
           className="w-full max-w-[700px] h-auto object-contain"

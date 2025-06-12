@@ -19,6 +19,7 @@ export default function MobileNavbar() {
     <section className="fixed z-[9999] w-full bg-white h-[72px] border-b-2">
       <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0 relative z-50">
         <img
+          loading="lazy"
           src={mobileLogo}
           alt="Logo Venus Elevadores"
           width={130}

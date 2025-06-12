@@ -83,6 +83,7 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <img
+            loading="lazy"
             src={ContactImage}
             alt="Pessoa falando ao telefone representando atendimento ao cliente"
             className="max-w-full justify-self-stretch h-auto"

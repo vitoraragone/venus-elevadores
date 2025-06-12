@@ -22,6 +22,7 @@ const Footer = () => {
     >
       <div className="container mx-auto flex flex-col">
         <motion.img
+          loading="lazy"
           src={FooterLogo}
           className="block grid-row-1 w-[70%] mx-auto md:m-0 md:w-fit"
           width={325}
@@ -65,13 +66,16 @@ const Footer = () => {
               <FontAwesomeIcon icon={faGoogle} />
               Avalie-nos no Google
             </button>
-            <button
+            <a
+              href="https://www.instagram.com/venus.elevadores/"
+              target="blank_"
+              rel="noreferrer"
               className="flex items-center gap-4 bg-white px-6 py-2 rounded-full border-2 border-red-4 text-red-4 font-semibold mt-4 hover:bg-red-4 hover:text-white transition-colors"
               aria-label="Avalie-nos no Google"
             >
               <FontAwesomeIcon icon={faInstagram} />
               Siga-nos no Instagram
-            </button>
+            </a>
           </motion.div>
 
           <motion.div

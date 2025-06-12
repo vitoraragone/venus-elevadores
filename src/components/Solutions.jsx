@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Elevator1 from "../assets/elevator-1.png";
 import Elevator2 from "../assets/elevator-2.png";
 import Elevator3 from "../assets/elevator-3.png";
@@ -47,7 +48,6 @@ const Solutions = () => {
       <h1 className="text-center w-full text-[#383838] font-semibold text-2xl sm:text-3xl whitespace-normal">
         A solução perfeita para qualquer empresa, residência ou indústria
       </h1>
-
       <div className="mt-8 flex flex-col lg:justify-center lg:flex-row lg:flex-wrap gap-8">
         {data.map((item, index) => {
           return (
@@ -57,6 +57,7 @@ const Solutions = () => {
             >
               <div className="hidden md:block w-full md:w-1/2 lg:w-full h-[200px] md:h-auto lg:h-[200px] overflow-hidden">
                 <img
+                  loading="lazy"
                   src={item.url}
                   alt={`Imagem ilustrativa para ${item.title}`}
                   className="w-full h-full object-cover"
@@ -75,8 +76,7 @@ const Solutions = () => {
           );
         })}
       </div>
-
-      <div className="block w-fit mx-auto my-14">
+      <div className="block w-fit mx-auto mt-14">
         <a
           href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
           target="_blank"
@@ -87,7 +87,29 @@ const Solutions = () => {
           </Button>
         </a>
       </div>
-
+      <div className="container mx-auto my-10">
+        <motion.h1
+          id="faq-heading"
+          className="text-center w-full text-[#383838] font-semibold text-2xl sm:text-3xl whitespace-normal my-4"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Veja a galeria de fotos dos nossos projetos
+        </motion.h1>
+        <motion.p
+          id="faq-heading"
+          className="text-center w-full text-[#586171] text-md whitespace-normal my-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Veja fotos dos projetos que foram criados do zero especialmente para
+          nossos clientes, contando com personalizações e detalhes escolhidos
+          por cada um, ajustando o formato, modelo e características tornando o
+          projeto único.
+        </motion.p>
+      </div>
       <ImageSlider />
     </section>
   );

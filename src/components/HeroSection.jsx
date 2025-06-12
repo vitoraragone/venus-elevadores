@@ -1,8 +1,10 @@
 import React from "react";
 import Button from "../components/Utils/Button";
-import GrayLogo from "../assets/single-logo-gray.svg?react";
-import RedLogo from "../assets/single-logo-red.svg?react";
-import FullLogo from "../assets/logo-gray.svg?react";
+import Cliente1 from "../assets/cliente-1.png";
+import Cliente2 from "../assets/cliente-2.png";
+import Cliente3 from "../assets/cliente-3.png";
+import Cliente4 from "../assets/cliente-4.png";
+import Cliente5 from "../assets/cliente-5.png";
 import heroImage from "../assets/hero-image.svg";
 import { motion } from "framer-motion";
 
@@ -24,7 +26,8 @@ const HeroSection = () => {
         "Adaptamos o projeto de acordo com sua necessidade e espaço disponível, tornando possível ter um elevador ideal para sua realidade.",
     },
   ];
-  const logos = [GrayLogo, RedLogo, FullLogo];
+
+  const logos = [Cliente1, Cliente2, Cliente3, Cliente4, Cliente5];
 
   return (
     <section
@@ -84,6 +87,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <img
+            loading="lazy"
             className="w-full max-w-[500px]"
             src={heroImage}
             alt="Desenho de uma pessoa ao lado de um elevador personalizado"
@@ -104,22 +108,21 @@ const HeroSection = () => {
         </p>
 
         <div
-          className="slider mt-8"
+          className="slider mt-8 w-[140px] h-[70px]"
           style={{
-            "--width": "100px",
-            "--height": "48px",
-            "--quantity": 12,
+            "--width": "140px",
+            "--height": "70px",
+            "--quantity": 10,
           }}
         >
           <div className="list">
-            {[...Array(12)].map((_, i) => {
-              const LogoComponent = logos[i % logos.length];
+            {[...Array(10)].map((_, i) => {
+              const logoSrc = logos[i % logos.length];
               return (
                 <div className="item" key={i} style={{ "--position": i + 1 }}>
-                  <LogoComponent
-                    className="opacity-60 w-full h-full"
-                    width={undefined}
-                    height={undefined}
+                  <img
+                    src={logoSrc}
+                    className="opacity-80 w-full h-full object-contain"
                     aria-hidden="true"
                   />
                 </div>
