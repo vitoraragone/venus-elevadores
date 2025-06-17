@@ -18,23 +18,27 @@ export default function MobileNavbar() {
   return (
     <section className="fixed z-[9999] w-full bg-white h-[72px] border-b-2">
       <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0 relative z-50">
-        <img
-          loading="lazy"
-          src={mobileLogo}
-          alt="Logo Venus Elevadores"
-          width={130}
-          height={39}
-        />
+        <a href="/">
+          <img
+            loading="lazy"
+            src={mobileLogo}
+            alt="Logo Venus Elevadores"
+            width={130}
+            height={39}
+          />
+        </a>
 
-        <ul className="hidden lg:flex gap-6 items-center font-semibold text-[#6e7a89]">
-          {navOptions.map((item, index) => (
-            <li
-              key={index}
-              className="pb-px relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-[#6e7a89] after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100 w-fit"
-            >
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))}
+        <div className="hidden lg:flex gap-6 items-center font-semibold text-[#2f343a]">
+          <ul className="flex gap-6 items-center">
+            {navOptions.map((item, index) => (
+              <li
+                key={index}
+                className="pb-px relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-[#2f343a] after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100 w-fit"
+              >
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
           <a
             href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
             target="_blank"
@@ -44,7 +48,7 @@ export default function MobileNavbar() {
               Solicitar orçamento
             </button>
           </a>
-        </ul>
+        </div>
 
         <button
           onClick={() => setOpen(!open)}
