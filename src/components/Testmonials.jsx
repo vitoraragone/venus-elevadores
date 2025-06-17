@@ -130,6 +130,7 @@ const Testmonials = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 aria-label={`Depoimento de ${item.name}, da ${item.company}`}
+                tabIndex={0} // <-- Focável via teclado
               >
                 <blockquote className="p-6 text-[#586171] text-sm flex-1">
                   {item.testimonial}
@@ -143,6 +144,11 @@ const Testmonials = () => {
               </motion.article>
             ))}
           </motion.div>
+        </div>
+
+        {/* Aria-live para indicar o depoimento ativo */}
+        <div aria-live="polite" className="sr-only">
+          Depoimento {visibleIndex + 1} de {data.length}
         </div>
 
         <div className="md:hidden flex justify-center mt-6 gap-2">

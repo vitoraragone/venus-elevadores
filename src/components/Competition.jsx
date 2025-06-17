@@ -12,7 +12,7 @@ const Competition = () => {
     >
       <motion.h1
         id="competition-heading"
-        className="block text-center w-full text-[#383838] font-semibold text-2xl sm:text-3xl whitespace-normal px-6"
+        className="block text-center w-full text-[#383838] font-semibold text-2xl sm:text-3xl whitespace-normal px-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}

@@ -9,7 +9,6 @@ const About = () => {
       id="sobre"
       className="scroll-mt-[80px] w-full grid grid-cols-1 md:grid-cols-2"
       aria-labelledby="about-heading"
-      role="region"
     >
       <motion.div
         className="bg-blue-100 flex items-center justify-center"
@@ -27,7 +26,7 @@ const About = () => {
           </h1>
           <div className="text-[#586171] space-y-4 text-sm leading-relaxed">
             <p>
-              Vênus elevadores e uma empresa tradicional que abrange desde
+              Vênus elevadores é uma empresa tradicional que abrange desde
               assistência técnica a projetos e modernização de elevadores.
               Trabalhamos com uma equipe de profissionais treinados e
               capacitados para atendimento com agilidade e qualidade. Nossos
@@ -39,29 +38,21 @@ const About = () => {
               equipamentos quanto ao serviços em manutenção (preventiva e
               corretiva) e a modernização de elevadores multimarcas.
             </p>
-            <ul className="list-disc my-8 flex flex-col gap-4">
+            <ul className="list-disc my-8 flex flex-col gap-4 pl-5">
               <li>
-                <span className="font-semibold">Nossa visão</span>
-                <p>
-                  Sempre focando em um atendimento de qualidade para todo o
-                  Brasil.
-                </p>
+                <strong>Nossa visão:</strong> Sempre focando em um atendimento
+                de qualidade para todo o Brasil.
               </li>
               <li>
-                <span className="font-semibold">Nossa missão</span>
-                <p>
-                  Desenvolver projetos, soluções, manutenções e modernizações
-                  com segurança, qualidade, visando o respeito e a satisfação de
-                  toda a equipe e Clientes.
-                </p>
+                <strong>Nossa missão:</strong> Desenvolver projetos, soluções,
+                manutenções e modernizações com segurança, qualidade, visando o
+                respeito e a satisfação de toda a equipe e Clientes.
               </li>
               <li>
-                <span className="font-semibold">Nossos valores</span>
-                <p>
-                  Ética, Humanismo, Credibilidade, Respeito, Responsabilidade,
-                  Pioneirismo e Inovação, Transparência, Pontualidade,
-                  Confiança, Compromisso com a Segurança e Qualidade.
-                </p>
+                <strong>Nossos valores:</strong> Ética, Humanismo,
+                Credibilidade, Respeito, Responsabilidade, Pioneirismo e
+                Inovação, Transparência, Pontualidade, Confiança, Compromisso
+                com a Segurança e Qualidade.
               </li>
             </ul>
           </div>
@@ -85,6 +76,7 @@ const About = () => {
           style={{
             clipPath: "polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)",
           }}
+          draggable={false}
         />
       </motion.div>
     </section>

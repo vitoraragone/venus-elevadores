@@ -84,7 +84,7 @@ const TransformSection = () => {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
         >
           <motion.ul
-            className="flex flex-col gap-4 w-full max-w-[100ch] lg:max-w-[50ch] overflow-y-none  pr-2"
+            className="flex flex-col gap-4 w-full max-w-[100ch] lg:max-w-[50ch] overflow-y-none pr-2"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -96,6 +96,8 @@ const TransformSection = () => {
                 },
               },
             }}
+            role="list"
+            aria-label="Lista de projetos disponíveis"
           >
             {data.map((item, index) => {
               const isActive = activeIndex === index;
@@ -112,6 +114,7 @@ const TransformSection = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4 }}
+                  role="listitem"
                 >
                   <button
                     id={buttonId}
@@ -119,12 +122,16 @@ const TransformSection = () => {
                     className="w-full text-left font-semibold text-white/90 hover:text-white transition-colors flex items-start justify-between"
                     aria-expanded={isActive}
                     aria-controls={contentId}
+                    aria-label={`Expandir detalhes do projeto ${item.title}`}
                   >
                     <span className="flex items-center gap-2 text-sm md:text-lg">
                       <span className="text-white font-bold">0{index + 1}</span>
                       {item.title}
                     </span>
-                    <span className="text-white text-xl leading-none">
+                    <span
+                      className="text-white text-xl leading-none"
+                      aria-hidden="true"
+                    >
                       {isActive ? "–" : "+"}
                     </span>
                   </button>
@@ -157,7 +164,7 @@ const TransformSection = () => {
             <img
               className="block h-full object-cover rounded-xl shadow-md"
               src={RoomElevator}
-              alt="Elevador para pessoas com deficiência física"
+              alt="Elevador acessível para pessoas com deficiência física"
               loading="lazy"
             />
           </motion.div>

@@ -44,52 +44,64 @@ const Solutions = () => {
   ];
 
   return (
-    <section className="container mx-auto py-12 px-6">
-      <h1 className="text-center w-full text-[#383838] font-semibold text-2xl sm:text-3xl whitespace-normal">
+    <section
+      className="container mx-auto py-12 px-4"
+      aria-labelledby="solution-heading"
+    >
+      <h1
+        id="solution-heading"
+        className="text-center w-full text-[#383838] font-semibold text-2xl sm:text-3xl whitespace-normal"
+      >
         A solução perfeita para qualquer empresa, residência ou indústria
       </h1>
-      <div className="mt-8 flex flex-col lg:justify-center lg:flex-row lg:flex-wrap gap-8">
-        {data.map((item, index) => {
-          return (
-            <article
-              key={index}
-              className="bg-[#FFEEEE] flex flex-col md:flex-row lg:flex-col lg:max-w-[400px] rounded-xl shadow-md overflow-hidden"
-            >
-              <div className="hidden md:block w-full md:w-1/2 lg:w-full h-[200px] md:h-auto lg:h-[200px] overflow-hidden">
-                <img
-                  loading="lazy"
-                  src={item.url}
-                  alt={`Imagem ilustrativa para ${item.title}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
 
-              <div className="flex-1 p-8 flex flex-col justify-center">
-                <p className="font-semibold text-[#2D3239] text-lg">
-                  {item.title}
-                </p>
-                <p className="text-sm text-[#586171] mt-4">
-                  {item.description}
-                </p>
-              </div>
-            </article>
-          );
-        })}
+      <div
+        className="mt-8 flex flex-col lg:justify-center lg:flex-row lg:flex-wrap gap-8"
+        role="list"
+        aria-label="Lista de soluções disponíveis"
+      >
+        {data.map((item, index) => (
+          <article
+            key={index}
+            className="bg-[#FFEEEE] flex flex-col md:flex-row lg:flex-col lg:max-w-[400px] rounded-xl shadow-md overflow-hidden"
+            role="listitem"
+            aria-label={`Solução ${item.title}`}
+          >
+            <div className="hidden md:block w-full md:w-1/2 lg:w-full h-[200px] md:h-auto lg:h-[200px] overflow-hidden">
+              <img
+                loading="lazy"
+                src={item.url}
+                alt={`Imagem ilustrativa do projeto ${item.title}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="flex-1 p-8 flex flex-col justify-center">
+              <h2 className="font-semibold text-[#2D3239] text-lg">
+                {item.title}
+              </h2>
+              <p className="text-sm text-[#586171] mt-4">{item.description}</p>
+            </div>
+          </article>
+        ))}
       </div>
+
       <div className="block w-fit mx-auto mt-14">
         <a
           href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
           target="_blank"
           rel="noreferrer noopener"
+          aria-label="Abrir conversa no WhatsApp para solicitar um projeto"
         >
           <Button bgColor="red-4" color="white">
             Quero um projeto!
           </Button>
         </a>
       </div>
+
       <div className="container mx-auto my-10">
         <motion.h1
-          id="faq-heading"
+          id="gallery-heading"
           className="text-center w-full text-[#383838] font-semibold text-2xl sm:text-3xl whitespace-normal my-4"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,19 +109,21 @@ const Solutions = () => {
         >
           Veja a galeria de fotos dos nossos projetos
         </motion.h1>
+
         <motion.p
-          id="faq-heading"
-          className="text-center w-full text-[#586171] text-md whitespace-normal my-4"
+          aria-labelledby="gallery-heading"
+          className="text-center md:w-8/12 mx-auto text-[#586171] text-md whitespace-normal my-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           Veja fotos dos projetos que foram criados do zero especialmente para
           nossos clientes, contando com personalizações e detalhes escolhidos
-          por cada um, ajustando o formato, modelo e características tornando o
+          por cada um, ajustando o formato, modelo e características, tornando o
           projeto único.
         </motion.p>
       </div>
+
       <ImageSlider />
     </section>
   );

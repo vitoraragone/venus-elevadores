@@ -34,13 +34,13 @@ const CustomerService = () => {
       <div className="container mx-auto px-4">
         <h1
           id="customer-service-heading"
-          className="text-center text-white font-semibold text-3xl"
+          className="text-center text-white font-semibold text-2xl lg:text-3xl"
         >
           Nosso processo de atendimento e personalização
         </h1>
 
         <div
-          className="flex flex-col lg:flex-row gap-6 mt-12 flex-wrap justify-center"
+          className="flex flex-col xl:flex-row gap-6 mt-12 flex-wrap justify-center"
           role="list"
         >
           {data.map((item, index) => (

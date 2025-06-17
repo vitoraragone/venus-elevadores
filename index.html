@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="content-language" content="pt-BR" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -19,7 +19,10 @@
       property="og:description"
       content="A Vênus Elevadores é referência em transporte vertical: elevadores residenciais, comerciais, maca, monta carga, acessibilidade, manutenção e mais"
     />
-    <meta property="og:image" content="https://www.venuswebsite" />
+    <meta
+      property="og:image"
+      content="https://venus-elevadores.vercel.app/src/assets/og-image.png"
+    />
     <meta
       property="og:url"
       content="https://venus-elevadores.vercel.app/src/assets/og-image.png"
@@ -37,11 +40,18 @@
       content="#000000"
     />
 
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"
+      />
+    </noscript>
     <link rel="icon" type="image/x-icon" href="/venus-ico.svg" />
 
     <title>Vênus Elevadores</title>
