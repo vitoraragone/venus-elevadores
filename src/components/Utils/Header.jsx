@@ -46,7 +46,11 @@ export default function MobileNavbar() {
           </a>
         </ul>
 
-        <button onClick={() => setOpen(!open)} className="z-50 lg:hidden">
+        <button
+          onClick={() => setOpen(!open)}
+          className="z-50 lg:hidden"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+        >
           <FontAwesomeIcon
             icon={open ? faXmark : faBars}
             size="lg"

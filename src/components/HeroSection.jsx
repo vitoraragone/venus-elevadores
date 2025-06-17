@@ -147,7 +147,6 @@ const HeroSection = () => {
         {cards.map((card, index) => (
           <motion.article
             key={card.title}
-            role="listitem"
             aria-labelledby={`card-title-${index}`}
             initial={{ y: 40 }}
             whileInView={{ y: 0 }}
@@ -161,7 +160,7 @@ const HeroSection = () => {
             >
               {card.title}
             </p>
-            <span className="text-sm text-dark-1 leading-relaxed">
+            <span className="text-sm text-black leading-relaxed">
               {card.description}
             </span>
           </motion.article>

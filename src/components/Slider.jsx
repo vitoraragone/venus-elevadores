@@ -96,7 +96,6 @@ export default function ImageSlider() {
             onClick={() => setCurrent(index)}
             aria-label={`Ver imagem ${index + 1} de ${images.length}`}
             aria-current={index === current ? "true" : undefined}
-            role="listitem"
           >
             <img
               loading="lazy"

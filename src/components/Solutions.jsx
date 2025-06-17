@@ -64,7 +64,6 @@ const Solutions = () => {
           <article
             key={index}
             className="bg-[#FFEEEE] flex flex-col md:flex-row lg:flex-col lg:max-w-[400px] rounded-xl shadow-md overflow-hidden"
-            role="listitem"
             aria-label={`Solução ${item.title}`}
           >
             <div className="hidden md:block w-full md:w-1/2 lg:w-full h-[200px] md:h-auto lg:h-[200px] overflow-hidden">
