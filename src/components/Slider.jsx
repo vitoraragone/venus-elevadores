@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Plataforma1 from "../assets/plataforma-1.jpeg";
@@ -21,17 +21,6 @@ const images = [
 
 export default function ImageSlider() {
   const [current, setCurrent] = useState(0);
-  const thumbnailsRef = useRef([]);
-
-  useEffect(() => {
-    if (thumbnailsRef.current[current]) {
-      thumbnailsRef.current[current].scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "nearest",
-      });
-    }
-  }, [current]);
 
   return (
     <section
@@ -94,7 +83,7 @@ export default function ImageSlider() {
           </svg>
         </button>
 
-        <div className="h-[80svh] md:h-[85dvh] w-full lg:h-[86vh] flex justify-center items-center">
+        <div className="h-[80vh] md:h-[85vh] w-full lg:h-[86vh] flex justify-center items-center">
           <AnimatePresence mode="wait">
             <motion.img
               key={images[current]}
@@ -120,7 +109,6 @@ export default function ImageSlider() {
         {images.map((img, index) => (
           <button
             key={index}
-            ref={(el) => (thumbnailsRef.current[index] = el)}
             className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 ${
               index === current
                 ? "border-red-500"
