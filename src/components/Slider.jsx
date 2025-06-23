@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Plataforma1 from "../assets/plataforma-1.jpeg";
@@ -21,26 +21,30 @@ const images = [
 
 export default function ImageSlider() {
   const [current, setCurrent] = useState(0);
+  const thumbnailsRef = useRef([]);
+
+  useEffect(() => {
+    if (thumbnailsRef.current[current]) {
+      thumbnailsRef.current[current].scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "nearest",
+      });
+    }
+  }, [current]);
 
   return (
     <section
       className="flex flex-col md:flex-row w-full max-w-2xl mx-auto select-none"
       aria-labelledby="image-slider-title"
-      tabIndex={0} // torna a seção focável para capturar eventos de teclado
-      onKeyDown={(e) => {
-        if (e.key === "ArrowLeft") {
-          setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-        } else if (e.key === "ArrowRight") {
-          setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-        }
-      }}
+      tabIndex={0}
     >
       <h2 id="image-slider-title" className="sr-only">
         Galeria de imagens dos projetos
       </h2>
 
       <div
-        className="flex-1 flex justify-center items-center h-[60vh] md:h-[85vh] relative"
+        className="flex-1 flex justify-center items-center relative"
         role="region"
         aria-label="Imagem ampliada da galeria"
       >
@@ -48,36 +52,64 @@ export default function ImageSlider() {
           onClick={() =>
             setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1))
           }
-          className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-red-500 text-white bg-opacity-70 rounded-full p-2 shadow-md hover:bg-opacity-100 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
+          className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/70 backdrop-blur-md text-gray-800 rounded-full p-3 shadow-lg hover:scale-110 hover:bg-white transition transform-gpu focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500 z-10"
           aria-label="Imagem anterior"
         >
-          &#8592;
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
         </button>
 
         <button
           onClick={() =>
             setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1))
           }
-          className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-red-500 text-white bg-opacity-70 rounded-full p-2 shadow-md hover:bg-opacity-100 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
+          className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/70 backdrop-blur-md text-gray-800 rounded-full p-3 shadow-lg hover:scale-110 hover:bg-white transition transform-gpu focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500 z-10"
           aria-label="Próxima imagem"
         >
-          &#8594;
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
         </button>
 
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={images[current]}
-            src={images[current]}
-            alt={`Imagem ${current + 1} de ${images.length}`}
-            loading="lazy"
-            draggable={false}
-            className="rounded-md shadow-md w-full h-full object-cover"
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -10 }}
-            transition={{ duration: 0.3 }}
-          />
-        </AnimatePresence>
+        <div className="h-[80svh] md:h-[85dvh] w-full lg:h-[86vh] flex justify-center items-center">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={images[current]}
+              src={images[current]}
+              alt={`Imagem ${current + 1} de ${images.length}`}
+              loading="lazy"
+              draggable={false}
+              className="rounded-md shadow-md w-full h-full object-cover"
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+              transition={{ duration: 0.3 }}
+            />
+          </AnimatePresence>
+        </div>
       </div>
 
       <div
@@ -88,6 +120,7 @@ export default function ImageSlider() {
         {images.map((img, index) => (
           <button
             key={index}
+            ref={(el) => (thumbnailsRef.current[index] = el)}
             className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 ${
               index === current
                 ? "border-red-500"

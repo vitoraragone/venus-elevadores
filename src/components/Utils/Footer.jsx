@@ -42,7 +42,7 @@ const Footer = () => {
             <p className="font-bold uppercase" id="footer-heading">
               site vênus elevadores
             </p>
-            <ul className="text-dark-1 mt-4">
+            <ul className="text-dark-4 mt-4">
               {navLinks.map(({ label, href }, i) => (
                 <li key={i}>
                   <a href={href} className="hover:underline focus:underline">
@@ -86,12 +86,12 @@ const Footer = () => {
             <p className="font-bold uppercase">Contatos</p>
 
             <div className="mt-4">
-              <p className="font-semibold text-dark-1">Comercial</p>
+              <p className="font-semibold text-dark-4">Comercial</p>
               <a
                 href="https://wa.me/5511970697761?text=Ol%C3%A1,%20gostaria%20de%20obter%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20elevadores!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-dark-1 hover:underline focus:underline"
+                className="text-dark-3 hover:underline focus:underline"
                 aria-label="Conversar no WhatsApp"
                 title="Conversar no WhatsApp"
               >
@@ -100,12 +100,12 @@ const Footer = () => {
             </div>
 
             <div className="mt-2">
-              <p className="font-semibold text-dark-1">Financeiro</p>
+              <p className="font-semibold text-dark-4">Financeiro</p>
               <a
                 href="https://wa.me/5511945860934"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-dark-1 hover:underline focus:underline"
+                className="text-dark-3 hover:underline focus:underline"
                 aria-label="Conversar no WhatsApp"
                 title="Conversar no WhatsApp"
               >
@@ -115,21 +115,21 @@ const Footer = () => {
 
             <a
               href="mailto:contato@venuselevadores.com.br"
-              className="text-dark-1 hover:underline focus:underline block mt-2"
+              className="text-dark-4 hover:underline focus:underline block mt-2"
               aria-label="Enviar e-mail para Vênus Elevadores"
               title="Enviar e-mail para Vênus Elevadores"
             >
               comercial.venuselevadores@gmail.com
             </a>
 
-            <p className="text-dark-1">
+            <p className="text-dark-3">
               Av. Ordem e Progresso, 157, Barra Funda. São Paulo-SP <b>CEP:</b>{" "}
               01141-030
             </p>
           </motion.div>
         </div>
       </div>
-      <p className="text-center text-sm text-dark-1 mt-10 pb-2">
+      <p className="text-center text-sm text-dark-4 font-semibold mt-10 pb-2">
         Copyright &copy; {new Date().getFullYear()} - Vênus Elevadores
       </p>
     </section>
